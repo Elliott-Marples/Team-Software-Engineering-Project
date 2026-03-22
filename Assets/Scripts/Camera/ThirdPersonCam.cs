@@ -7,7 +7,6 @@ using UnityEngine.Rendering;
 
 public class ThirdPersonCam : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTransform;
     [SerializeField] private float zoomSpeed = 2f;
     [SerializeField] private float zoomLerpSpeed = 10f;
     [SerializeField] private float minDistance = 3f;
