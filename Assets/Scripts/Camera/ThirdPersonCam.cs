@@ -18,8 +18,8 @@ public class ThirdPersonCam : MonoBehaviour
     private CinemachineOrbitalFollow orbitalFollow;
     private Vector2 scrollDelta;
 
-    private float targetZoom;
-    private float currentZoom;
+    [SerializeField] private float targetZoom;
+    [SerializeField] private float currentZoom;
 
     private void Start()
     {

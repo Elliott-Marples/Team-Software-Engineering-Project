@@ -59,6 +59,11 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
         }
 
+        //if(characterController.isGrounded && velocity.y < 0)
+        //{
+        //    velocity.y = -2f;
+        //}
+
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
