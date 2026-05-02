@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
   playPanel: {fileID: 1027925645}
   playerCountPanel: {fileID: 1473177889}
-  gameSceneName: Camera
+  gameSceneName: sampleScene
 --- !u!114 &1039466588
 MonoBehaviour:
   m_ObjectHideFlags: 0
