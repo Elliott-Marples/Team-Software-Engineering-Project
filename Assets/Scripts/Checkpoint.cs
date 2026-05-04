@@ -11,6 +11,7 @@ public class Checkpoint : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             RaceManager.instance.CheckpointReached(checkpointIndex);
+            other.GetComponent<PlayerController>().currentCheckpoint = this;
         }
     }
 }

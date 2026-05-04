@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "name": "PlayerInput",
+    "name": "PlayerInputHandler",
     "maps": [
         {
             "name": "CharacterControls",
@@ -14,6 +14,15 @@
                     "processors": "NormalizeVector2",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "StartRace",
+                    "type": "Button",
+                    "id": "e6872cb9-3924-4889-a940-f4227e8f98b0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -94,6 +103,28 @@
                 },
                 {
                     "name": "",
+                    "id": "454013e1-705c-4702-af6b-8826bace70a1",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartRace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cd2634b-156d-44c6-ae31-ba42d5032c41",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartRace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2e1e4e1d-9e1f-4703-be89-a9498304ca24",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -123,7 +154,16 @@
                 {
                     "name": "MouseZoom",
                     "type": "Value",
-                    "id": "6aaf88fa-b81e-42e1-9493-928c72fb3cc5",
+                    "id": "cd6d74a2-c327-40cf-bcf6-6a6422cc640a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "8029b21e-5d53-4bb1-938f-08fd31cf8ed2",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -132,7 +172,7 @@
                 {
                     "name": "GamepadZoom",
                     "type": "Value",
-                    "id": "17e0f11a-baaf-48ab-ab23-bd16526c8bb7",
+                    "id": "cfd136e5-88bf-4bb6-892a-1a5af2454575",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -142,7 +182,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "04e0732a-b087-4922-a59f-63e6e7d5c816",
+                    "id": "32f18536-b705-499a-8b8a-61441e790251",
                     "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
@@ -152,8 +192,30 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "7a5af034-debf-4740-b037-ca1d4a1985ac",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=100,y=100)",
+                    "groups": ";Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7eb89788-ad82-48e8-b9f1-bc2ee46cedd0",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "DeltaTimeScale,ScaleVector2(x=0.1,y=0.1)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
-                    "id": "f7ab92b3-a0ca-4745-a5b6-354e01dd1721",
+                    "id": "e5cdb467-451e-4006-8a52-a795f7529e1c",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -164,7 +226,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "f59a1abe-7639-4a6e-980a-aa75c12fd8c1",
+                    "id": "74838e0f-be2b-4325-a353-b7b9c5facc61",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
@@ -175,7 +237,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "f2877409-5701-48fe-9f51-722d93d5c395",
+                    "id": "cc5075ae-14e6-4633-92fc-61d2e8ffc5a7",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",

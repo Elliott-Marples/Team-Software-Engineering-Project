@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RaceManager : MonoBehaviour
 {
@@ -27,6 +29,10 @@ public class RaceManager : MonoBehaviour
     private float currentLapTime = 0f;
     private float overallRaceTime = 0f;
     private float bestLapTime = Mathf.Infinity;
+
+    [SerializeField] public GameObject door;
+    [SerializeField] public PlayerInputManager playerInputManager;
+    private List<int> playersReady = new();
 
     #region Unity Functions
 
@@ -111,13 +117,27 @@ public class RaceManager : MonoBehaviour
 
     }
 
-    private void StartRace()
+    public void StartRace(int playerNum = -1)
     {
-        raceStarted = true;
-        raceFinished = false;
+        // Add players to ready list if not already in there
+        if (playerNum != -1 && !playersReady.Contains(playerNum))
+        {
+            playersReady.Add(playerNum);
+        }
+
+        // When all players have pressed start race button, start the race
+        if (playerInputManager.playerCount == playersReady.Count)
+        {
+            raceStarted = true;
+            raceFinished = false;
+
+            Destroy(door);
+            playerInputManager.DisableJoining();
+        }
+
     }
 
-    private void EndRace()
+    public void EndRace()
     {
         raceFinished = true;
         raceStarted = false;

@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5990814929143231924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3115483, y: -2.3666987e-24, z: 4.194681e-25, w: 0.95023036}
-  m_LocalPosition: {x: 0, y: 3.50353, z: -4.7686005}
+  m_LocalRotation: {x: 0.31154832, y: -0, z: -0, w: 0.95023036}
+  m_LocalPosition: {x: 0, y: 3.50353, z: -4.7685847}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -192,9 +192,9 @@ MonoBehaviour:
       Owner: {fileID: 9079745051361323909}
       Enabled: 1
       Input:
-        InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+        InputAction: {fileID: -5678253283850151340, guid: 613bb1c07bf233b48a53d55d02e0ec3f, type: 3}
         Gain: 1
-        CancelDeltaTime: 0
+        CancelDeltaTime: 1
       InputValue: 0
       Driver:
         AccelTime: 0.2
@@ -203,9 +203,9 @@ MonoBehaviour:
       Owner: {fileID: 9079745051361323909}
       Enabled: 1
       Input:
-        InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+        InputAction: {fileID: -5678253283850151340, guid: 613bb1c07bf233b48a53d55d02e0ec3f, type: 3}
         Gain: -1
-        CancelDeltaTime: 0
+        CancelDeltaTime: 1
       InputValue: 0
       Driver:
         AccelTime: 0.2
@@ -214,7 +214,7 @@ MonoBehaviour:
       Owner: {fileID: 9079745051361323909}
       Enabled: 1
       Input:
-        InputAction: {fileID: 5082991133974614888, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+        InputAction: {fileID: -5678253283850151340, guid: 613bb1c07bf233b48a53d55d02e0ec3f, type: 3}
         Gain: -1
         CancelDeltaTime: 0
       InputValue: 0
@@ -239,6 +239,8 @@ MonoBehaviour:
   zoomLerpSpeed: 10
   minDistance: 0.5
   maxDistance: 1
+  sensitivity: 0.025
+  controllerSensitivity: 0.05
   targetZoom: 0
   currentZoom: 0
 --- !u!1 &7591867848645071983
@@ -353,7 +355,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -400,9 +402,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   cameraTransform: {fileID: 6009706173847796259}
   speed: 3
-  jumpHeight: 3
-  gravity: -3
+  jumpHeight: 1
+  gravity: -1
   shouldFaceMoveDirection: 0
+  fanDuration: 5
+  currentCheckpoint: {fileID: 0}
 --- !u!114 &6607784735012854159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,13 +465,69 @@ MonoBehaviour:
     m_ActionId: e2c224c4-3326-4d47-888d-bf9a1609b209
     m_ActionName: 'CharacterControls/Run[/Keyboard/leftShift,/XInputControllerWindows/leftTrigger]'
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6aaf88fa-b81e-42e1-9493-928c72fb3cc5
+      m_Calls:
+      - m_Target: {fileID: 1534406487313621529}
+        m_TargetAssemblyTypeName: ThirdPersonCam, Assembly-CSharp
+        m_MethodName: HandleMouseScroll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cd6d74a2-c327-40cf-bcf6-6a6422cc640a
     m_ActionName: 'CameraControls/MouseZoom[/Mouse/scroll]'
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 17e0f11a-baaf-48ab-ab23-bd16526c8bb7
-    m_ActionName: 'CameraControls/GamepadZoom[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]'
+      m_Calls:
+      - m_Target: {fileID: 1534406487313621529}
+        m_TargetAssemblyTypeName: ThirdPersonCam, Assembly-CSharp
+        m_MethodName: HandleMouseScroll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8029b21e-5d53-4bb1-938f-08fd31cf8ed2
+    m_ActionName: 'CameraControls/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1534406487313621529}
+        m_TargetAssemblyTypeName: ThirdPersonCam, Assembly-CSharp
+        m_MethodName: HandleMouseMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cfd136e5-88bf-4bb6-892a-1a5af2454575
+    m_ActionName: CameraControls/GamepadZoom
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3122445534502614172}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnStartRace
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e6872cb9-3924-4889-a940-f4227e8f98b0
+    m_ActionName: 'CharacterControls/StartRace[/Keyboard/enter,/XInputControllerWindows/buttonWest]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CharacterControls
@@ -501,7 +561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458707443074058420}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31154832, y: -2.4976585e-24, z: 8.1889747e-25, w: 0.9502303}
+  m_LocalRotation: {x: 0.31154832, y: -0, z: -0, w: 0.95023036}
   m_LocalPosition: {x: 0, y: 3.50353, z: -4.7685847}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
@@ -566,7 +626,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458707443074058420}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &8386196653108633817
 MonoBehaviour:
   m_ObjectHideFlags: 0
