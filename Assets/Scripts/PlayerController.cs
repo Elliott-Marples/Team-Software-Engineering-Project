@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
 
     public int playerNum;
+    private string colour;
     private Vector2 moveInput;
     private Vector3 velocity;
 
@@ -43,6 +44,33 @@ public class PlayerController : MonoBehaviour
         cmBrain = GetComponentInChildren<CinemachineBrain>();
         cmInput = GetComponentInChildren<CinemachineInputAxisController>();
         playerNum = playerInput.playerIndex + 1;
+
+        switch (playerNum)
+        {
+            case 1:
+                colour = "blue";
+                break;
+
+            case 2:
+                colour = "pink";
+                break;
+
+            case 3:
+                colour = "red";
+                break;
+
+            case 4:
+                colour = "glass";
+                break;
+        }
+
+        Debug.Log(colour);
+        Debug.Log(transform.GetChild(2).GetComponent<Renderer>().materials[0]);
+
+        transform.GetChild(2).GetComponent<Renderer>().material = Resources.Load($"rat/{colour}", typeof(Material)) as Material;
+
+        Debug.Log(transform.GetChild(2).GetComponent<Renderer>().materials[0]);
+
 
         OutputChannels channel = (OutputChannels)(Math.Pow(2, playerNum));
 

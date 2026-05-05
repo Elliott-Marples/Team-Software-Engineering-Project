@@ -149,8 +149,28 @@ public class RaceManager : MonoBehaviour
         raceFinished = true;
         raceStarted = false;
 
+        string ratColour = "null";
+        switch (playerNum)
+        {
+            case 1:
+                ratColour = "Blue";
+                break;
+
+            case 2:
+                ratColour = "Pink";
+                break;
+
+            case 3:
+                ratColour = "Red";
+                break;
+
+            case 4:
+                ratColour = "Glass";
+                break;
+        }
+
         Time.timeScale = 0f;
-        winText.text = $"Player {playerNum} wins!";
+        winText.text = $"{ratColour} rat wins!";
         winLapTextCurrent.text = "Current Time: " + FormatTime(currentLapTime);
         winLapTextBest.text = "Personal Best: " + FormatTime(bestLapTime);
         gameUI.SetActive(false);
