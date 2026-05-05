@@ -10,7 +10,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            RaceManager.instance.CheckpointReached(checkpointIndex);
+            PlayerController player = other.GetComponent<PlayerController>();
+            RaceManager.instance.CheckpointReached(checkpointIndex, player.playerNum);
             other.GetComponent<PlayerController>().currentCheckpoint = this;
         }
     }

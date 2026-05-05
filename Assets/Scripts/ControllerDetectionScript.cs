@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class ControllerDetectionScript : MonoBehaviour
 {
     public int deviceCount;
+
     public Player1DetectionTextScript player1UI;
     public Player2DetectionTextScript player2UI;
     public Player3DetectionTextScript player3UI;

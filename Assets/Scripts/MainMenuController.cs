@@ -5,7 +5,6 @@ public class MainMenuController : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] public GameObject mainPanel;
-    [SerializeField] public GameObject playerCountPanel;
     [SerializeField] public GameObject settingsPanel;
 
     [Header("Scene")]
@@ -17,7 +16,6 @@ public class MainMenuController : MonoBehaviour
     {
         ShowMainPanel();
         mainPanel.SetActive(true);
-        playerCountPanel.SetActive(false);
         settingsPanel.SetActive(false);
     }
 
@@ -25,21 +23,6 @@ public class MainMenuController : MonoBehaviour
     {
         if (mainPanel != null)
             mainPanel.SetActive(true);
-
-        if (playerCountPanel != null)
-            playerCountPanel.SetActive(false);
-
-        if (settingsPanel != null)
-            settingsPanel.SetActive(false);
-    }
-
-    public void ShowPlayerCountPanel()
-    {
-        if (mainPanel != null)
-            mainPanel.SetActive(false);
-
-        if (playerCountPanel != null)
-            playerCountPanel.SetActive(true);
 
         if (settingsPanel != null)
             settingsPanel.SetActive(false);
@@ -50,9 +33,6 @@ public class MainMenuController : MonoBehaviour
         if (mainPanel != null)
             mainPanel.SetActive(false);
 
-        if (playerCountPanel != null)
-            playerCountPanel.SetActive(false);
-
         if (settingsPanel != null)
             settingsPanel.SetActive(true);
 
@@ -60,8 +40,6 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        GameSettings.PlayerCount = controllerScript.deviceCount;
-
         SceneManager.LoadScene(gameSceneName);
     }
 

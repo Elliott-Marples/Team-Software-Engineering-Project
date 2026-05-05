@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private PlayerInput playerInput;
 
-    private int playerNum;
+    public int playerNum;
     private Vector2 moveInput;
     private Vector3 velocity;
 

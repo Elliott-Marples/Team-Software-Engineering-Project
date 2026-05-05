@@ -86,7 +86,7 @@ public class ThirdPersonCam : MonoBehaviour
                 delta *= controllerSensitivity;
             }
 
-                orbitalFollow.HorizontalAxis.Value += delta.x;
+            orbitalFollow.HorizontalAxis.Value += delta.x;
             orbitalFollow.VerticalAxis.Value -= delta.y;
         }
     }

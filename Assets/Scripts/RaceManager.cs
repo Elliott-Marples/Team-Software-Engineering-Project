@@ -13,6 +13,12 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bestLapTimeText;
     [SerializeField] private TextMeshProUGUI overallRaceTimeText;
     [SerializeField] private TextMeshProUGUI lapText;
+    [SerializeField] private TextMeshProUGUI winText;
+    [SerializeField] private TextMeshProUGUI winLapTextCurrent;
+    [SerializeField] private TextMeshProUGUI winLapTextBest;
+
+    [SerializeField] private GameObject endScreen;
+    [SerializeField] private GameObject gameUI;
 
     [Header("Race Settings")]
     [SerializeField] private Checkpoint[] checkpoints;
@@ -46,6 +52,7 @@ public class RaceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        endScreen.SetActive(false);
     }
 
     private void Update()
@@ -61,17 +68,17 @@ public class RaceManager : MonoBehaviour
 
     #region Checkpoint Management
 
-    public void CheckpointReached(int checkpointIndex)
+    public void CheckpointReached(int checkpointIndex, int playerNum)
     {
         if ((!raceStarted && checkpointIndex != 0) || raceFinished) return;
 
         if(checkpointIndex == lastCheckpointIndex + 1)
         {
-            UpdateCheckpoint(checkpointIndex);
+            UpdateCheckpoint(checkpointIndex, playerNum);
         }
     }
 
-    private void UpdateCheckpoint(int checkpointIndex)
+    private void UpdateCheckpoint(int checkpointIndex, int playerNum)
     {
         if (checkpointIndex == 0)
         {
@@ -81,12 +88,12 @@ public class RaceManager : MonoBehaviour
             }
             else if (isCircuit && lastCheckpointIndex == checkpoints.Length - 1)
             {
-                OnLapFinish();
+                OnLapFinish(playerNum);
             }
         }
         else if (!isCircuit && checkpointIndex == checkpoints.Length - 1)
         {
-            OnLapFinish();
+            OnLapFinish(playerNum);
         }
 
         lastCheckpointIndex = checkpointIndex;
@@ -96,7 +103,7 @@ public class RaceManager : MonoBehaviour
 
     #region Race Management
 
-    private void OnLapFinish()
+    private void OnLapFinish(int playerNum)
     {
         currentLap++;
 
@@ -107,7 +114,7 @@ public class RaceManager : MonoBehaviour
 
         if (currentLap >= totalLaps)
         {
-            EndRace();
+            EndRace(playerNum);
         }
         else
         {
@@ -137,10 +144,17 @@ public class RaceManager : MonoBehaviour
 
     }
 
-    public void EndRace()
+    public void EndRace(int playerNum)
     {
         raceFinished = true;
         raceStarted = false;
+
+        Time.timeScale = 0f;
+        winText.text = $"Player {playerNum} wins!";
+        winLapTextCurrent.text = "Current Time: " + FormatTime(currentLapTime);
+        winLapTextBest.text = "Personal Best: " + FormatTime(bestLapTime);
+        gameUI.SetActive(false);
+        endScreen.SetActive(true);
     }
 
     private void UpdateTimers()
