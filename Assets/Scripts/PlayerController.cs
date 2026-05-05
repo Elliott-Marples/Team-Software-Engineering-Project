@@ -74,14 +74,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+           ResetPlayer(hit.gameObject);
+    }
+
+    public void ResetPlayer(GameObject other)
+    {
         //Debug.Log($"Collided with: {hit.gameObject.tag}");
-        if (hit.gameObject.CompareTag("ResetOnCollision"))
+        if (other.CompareTag("ResetOnCollision"))
         {
             Debug.Log("Touched a NoNo");
             transform.position = currentCheckpoint.transform.position;
             fanForce = Vector3.zero;
         }
-           
     }
 
     public void EnterFanArea(Vector3 force)
