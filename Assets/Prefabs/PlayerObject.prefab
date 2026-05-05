@@ -402,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   cameraTransform: {fileID: 6009706173847796259}
   speed: 3.5
-  jumpHeight: 2.5
+  jumpHeight: 1
   gravity: -13
   shouldFaceMoveDirection: 0
   fanDuration: 5

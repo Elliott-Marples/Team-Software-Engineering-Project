@@ -10,6 +10,7 @@ public class FireReset : MonoBehaviour
         currentTarget = other.gameObject;
         if (currentTarget.CompareTag("Player"))
         {
+            currentTargetController = currentTarget.GetComponent<PlayerController>();
             currentTargetController.ResetPlayer(this.gameObject);
         }
     }
