@@ -7637,8 +7637,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6274148, y: 1, z: 1}
+  m_Center: {x: -0.31370744, y: 0, z: 0}
 --- !u!23 &312281088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46871,7 +46871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ad6047e968e21449631e8acf603665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FanManager
-  rotationSpeed: 0
 --- !u!43 &608192528
 Mesh:
   m_ObjectHideFlags: 0
@@ -83133,7 +83132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ad6047e968e21449631e8acf603665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FanManager
-  rotationSpeed: 0
 --- !u!43 &804527953
 Mesh:
   m_ObjectHideFlags: 0
@@ -86360,8 +86358,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0795103, y: 1.3287077, z: 1.0237342}
+  m_Center: {x: 0.03975517, y: -0.16435401, z: 0.011867722}
 --- !u!23 &966555113
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88708,7 +88706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ad6047e968e21449631e8acf603665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FanManager
-  rotationSpeed: 0
 --- !u!1 &1182450544
 GameObject:
   m_ObjectHideFlags: 0
@@ -95194,7 +95191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ad6047e968e21449631e8acf603665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FanManager
-  rotationSpeed: 0
 --- !u!1 &1292744475
 GameObject:
   m_ObjectHideFlags: 0
@@ -95769,6 +95765,7 @@ MonoBehaviour:
   - {fileID: 1744675006}
   - {fileID: 2107223921}
   - {fileID: 966555111}
+  - {fileID: 1442167548}
   lastCheckpointIndex: -1
   isCircuit: 0
   totalLaps: 1
@@ -97733,8 +97730,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1.1930885}
+  m_Center: {x: 3.6281703e-17, y: 0, z: 0.010977157}
 --- !u!23 &1442167550
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -140424,7 +140421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ad6047e968e21449631e8acf603665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FanManager
-  rotationSpeed: 0
 --- !u!1 &1842086266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4479135465503940365, guid: fc46bc5e133e56147b31ef36eb7bf2f2, type: 3}
@@ -144414,8 +144410,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.294984, y: 3.6744494, z: 1}
+  m_Center: {x: 0.6474921, y: 1.3372247, z: 0}
 --- !u!23 &1982333165
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -145771,7 +145767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ad6047e968e21449631e8acf603665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FanManager
-  rotationSpeed: 0
 --- !u!43 &2132184418
 Mesh:
   m_ObjectHideFlags: 0

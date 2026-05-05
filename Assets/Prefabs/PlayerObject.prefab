@@ -192,7 +192,7 @@ MonoBehaviour:
       Owner: {fileID: 9079745051361323909}
       Enabled: 1
       Input:
-        InputAction: {fileID: -5678253283850151340, guid: 613bb1c07bf233b48a53d55d02e0ec3f, type: 3}
+        InputAction: {fileID: 0}
         Gain: 1
         CancelDeltaTime: 1
       InputValue: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
       Owner: {fileID: 9079745051361323909}
       Enabled: 1
       Input:
-        InputAction: {fileID: -5678253283850151340, guid: 613bb1c07bf233b48a53d55d02e0ec3f, type: 3}
+        InputAction: {fileID: 0}
         Gain: -1
         CancelDeltaTime: 1
       InputValue: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
       Owner: {fileID: 9079745051361323909}
       Enabled: 1
       Input:
-        InputAction: {fileID: -5678253283850151340, guid: 613bb1c07bf233b48a53d55d02e0ec3f, type: 3}
+        InputAction: {fileID: 0}
         Gain: -1
         CancelDeltaTime: 0
       InputValue: 0
@@ -401,9 +401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   cameraTransform: {fileID: 6009706173847796259}
-  speed: 3
-  jumpHeight: 1
-  gravity: -1
+  speed: 3.5
+  jumpHeight: 2.5
+  gravity: -13
   shouldFaceMoveDirection: 0
   fanDuration: 5
   currentCheckpoint: {fileID: 0}

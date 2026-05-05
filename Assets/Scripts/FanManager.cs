@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FanManager : MonoBehaviour
 {
-    public float rotationSpeed = 0f;
+    private float rotationSpeed = 0f;
 
     void Start()
     {
