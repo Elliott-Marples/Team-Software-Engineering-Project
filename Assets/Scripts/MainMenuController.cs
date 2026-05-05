@@ -4,38 +4,69 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     [Header("Panels")]
-    [SerializeField] public GameObject playPanel;
+    [SerializeField] public GameObject mainPanel;
     [SerializeField] public GameObject playerCountPanel;
+    [SerializeField] public GameObject settingsPanel;
 
     [Header("Scene")]
     [SerializeField] private string gameSceneName = "GameScene";
 
+    public ControllerDetectionScript controllerScript;
+
     private void Start()
     {
-        ShowPlayPanel();
+        ShowMainPanel();
+        mainPanel.SetActive(true);
+        playerCountPanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 
-    public void ShowPlayPanel()
+    public void ShowMainPanel()
     {
-        if (playPanel != null)
-            playPanel.SetActive(true);
+        if (mainPanel != null)
+            mainPanel.SetActive(true);
 
         if (playerCountPanel != null)
             playerCountPanel.SetActive(false);
+
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
     }
 
     public void ShowPlayerCountPanel()
     {
-        if (playPanel != null)
-            playPanel.SetActive(false);
+        if (mainPanel != null)
+            mainPanel.SetActive(false);
 
         if (playerCountPanel != null)
             playerCountPanel.SetActive(true);
+
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
     }
 
-    public void StartGame(int playerCount)
+    public void ShowSettingsPanel()
     {
-        GameSettings.PlayerCount = Mathf.Clamp(playerCount, 1, 4);
+        if (mainPanel != null)
+            mainPanel.SetActive(false);
+
+        if (playerCountPanel != null)
+            playerCountPanel.SetActive(false);
+
+        if (settingsPanel != null)
+            settingsPanel.SetActive(true);
+
+    }
+
+    public void StartGame()
+    {
+        GameSettings.PlayerCount = controllerScript.deviceCount;
+
         SceneManager.LoadScene(gameSceneName);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
